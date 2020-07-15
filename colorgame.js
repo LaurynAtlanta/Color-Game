@@ -9,7 +9,7 @@ var resetButton = document.querySelector("#reset");
 var modeButtons = document.querySelectorAll(".mode");
 
 
-Intit();
+init();
 
 function init(){
     //set up mode button event listeners
