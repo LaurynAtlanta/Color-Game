@@ -13,17 +13,25 @@ Intit();
 
 function init(){
     //set up mode button event listeners
-    for(var i = 0; i < modeButtons.length; i++){
-        modeButtons[i].addEventListener("click", function() {
-            modeButtons[0].classList.remove("selected");
-            modeButtons[1].classList.remove("selected");
-            this.classList.add("selected");
-            this.textContent === "Easy" ? numSquares = 3 : numSquares = 6;
-            reset();
+    setupModeButtons();
+    //sets up square listeners
+    setupSquares();
+    reset();
+};
+
+function setupModeButtons(){
+for(var i = 0; i < modeButtons.length; i++){
+    modeButtons[i].addEventListener("click", function() {
+        modeButtons[0].classList.remove("selected");
+        modeButtons[1].classList.remove("selected");
+        this.classList.add("selected");
+        this.textContent === "Easy" ? numSquares = 3 : numSquares = 6;
+        reset();
         });
     }
+};
 
-    //sets up square listeners
+function setupSquares(){
     for (var i = 0; i < squares.length; i++){
         //add click listeners to squares
         squares[i].addEventListener("click", function(){
@@ -41,8 +49,7 @@ function init(){
             }
         });
     }
-    reset();
-}
+};
 
 function reset() {
     colors = generateRandomColors(numSquares)
@@ -62,7 +69,7 @@ function reset() {
         }
     }
     h1.style.backgroundColor = "steelblue";
-}
+};
 
 resetButton.addEventListener("click", function(){
     reset();
